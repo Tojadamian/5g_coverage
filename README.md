@@ -2,7 +2,6 @@
 
 A production-grade Python simulator for evaluating 5G Non-Terrestrial Network (NTN) coverage using Low Earth Orbit (LEO) satellites. Combines orbital mechanics, RF propagation physics, and 3GPP Release 17 link budget analysis.
 
-**Status**: ✅ Thesis-Ready (85% Complete)
 
 ## Quick Start
 

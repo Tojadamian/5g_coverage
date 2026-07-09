@@ -13,3 +13,6 @@ results/
 
 # Mac OS System files
 .DS_Store
+
+#
+*.csv 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5G-NTN Simulation Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .controls { margin-top: 20px; padding: 15px; background: #ecf0f1; border-radius: 8px; display: flex; gap: 15px; align-items: center; }
+        select, button { padding: 10px 15px; font-size: 16px; border-radius: 5px; border: 1px solid #bdc3c7; }
+        button { background-color: #3498db; color: white; border: none; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        button:hover { background-color: #2980b9; }
+        button:disabled { background-color: #95a5a6; cursor: not-allowed; }
+        #status { margin-left: 15px; font-weight: bold; color: #e67e22; }
+        #chart { width: 100%; height: 500px; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🌍 5G-NTN Constellation Simulator</h1>
+    
+    <div class="controls">
+        <label for="constellation"><strong>Select Target Constellation:</strong></label>
+        <select id="constellation">
+            <option value="single_leo">Single Satellite (Baseline)</option>
+            <option value="starlink_train">Starlink Train (5 Sats)</option>
+            <option value="walker_global" selected>Walker-Delta Global (60 Sats)</option>
+        </select>
+        <button id="runBtn" onclick="runSimulation()">Run Physics Engine</button>
+        <span id="status">Ready.</span>
+    </div>
+
+    <div id="chart"></div>
+</div>
+
+<script src="/static/app.js"></script>
+
+</body>
+</html>

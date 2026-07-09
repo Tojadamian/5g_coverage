@@ -1,0 +1,15 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual Environment
+nte_env/
+
+# Skyfield Astronomical Data Cache
+satellite_data/
+
+# Auto-generated CSVs and Images (Keep the repo lightweight)
+results/
+
+# Mac OS System files
+.DS_Store

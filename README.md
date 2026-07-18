@@ -30,9 +30,10 @@ Follow these steps to set up the project on your local machine.
 ```bash
 git clone [https://github.com/Tojadamian/5g_coverage.git](https://github.com/Tojadamian/5g_coverage.git)
 cd 5g_coverage
+```
 
+### 2. Create a Virtual EnvironmentIt is highly recommended to use a virtual environment to isolate project dependencies.
 
-2. Create a Virtual EnvironmentIt is highly recommended to use a virtual environment to isolate project dependencies.
 Windows:
 PowerShell
 python -m venv .venv
@@ -42,31 +43,31 @@ Bash
 python3 -m venv .venv
 source .venv/bin/activate
 
+### 3. Install Dependencies
 
-3. Install Dependencies
 Bash
 pip install -r requirements.txt
-
 
 Running the Simulator
 You can run the simulator either through the modern web API or directly via the CLI.
 
 Option A: Running via REST API (FastAPI)
+
 1. Generate the Constellation Data
-First, generate the satellite constellation configuration (e.g., the Walker Global constellation):
-Bash
-python generate_walker.py
-Expected output: Successfully added 60-satellite 'walker_global' constellation to satellite_constellation.json!
+   First, generate the satellite constellation configuration (e.g., the Walker Global constellation):
+   Bash
+   python generate_walker.py
+   Expected output: Successfully added 60-satellite 'walker_global' constellation to satellite_constellation.json!
 
 2. Start the ServerLaunch the Uvicorn server to host the API:
-Bash
-python -m uvicorn app:app --reload
-The server will start at http://127.0.0.1:8000.
+   Bash
+   python -m uvicorn app:app --reload
+   The server will start at http://127.0.0.1:8000.
 
 3. Interact with the API
-Run a Simulation: GET http://127.0.0.1:8000/api/run?constellation=walker_global
-Check Status: GET http://127.0.0.1:8000/api/status
-Fetch Data: GET http://127.0.0.1:8000/api/dataOption
+   Run a Simulation: GET http://127.0.0.1:8000/api/run?constellation=walker_global
+   Check Status: GET http://127.0.0.1:8000/api/status
+   Fetch Data: GET http://127.0.0.1:8000/api/dataOption
 
 B: Running via CLI (Standalone)
 If you just want to run a single physical simulation pass without the web server:Bashpython main_simulator.py
@@ -77,7 +78,7 @@ FastAPI server and API endpoints
 main_simulator.py Core orchestration pipeline
 rf_propagation.py RF physics layer (Path loss, atmosphere, antenna)
 study_area.py Geographic framework and grid generation
-link_budget.py  3GPP link budget calculations
+link_budget.py 3GPP link budget calculations
 generate_walker.py Constellation payload generation
 
 Note: For deeper technical explanations of the physical models and formulas used, refer to TECHNICAL_README.md.
@@ -85,18 +86,21 @@ Note: For deeper technical explanations of the physical models and formulas used
 ConfigurationTo customize the physical simulation parameters, edit the configuration block inside main_simulator.py:
 
 Python
+
 # Study area configuration
+
 STUDY_AREA_CONFIG = {
-    "center_lat": 50.0,      # Latitude (e.g., Prague)
-    "center_lon": 15.0,      # Longitude
-    "width_km": 50,          # Region width
-    "height_km": 50,         # Region height
-    "resolution_m": 2500,    # Distance between grid receivers
+"center_lat": 50.0, # Latitude (e.g., Prague)
+"center_lon": 15.0, # Longitude
+"width_km": 50, # Region width
+"height_km": 50, # Region height
+"resolution_m": 2500, # Distance between grid receivers
 }
 
 # Satellite parameters
-TX_POWER_DBM = 43.0          # 20 Watts
-FREQUENCY_HZ = 2.1e9         # 2100 MHz (S-Band)
+
+TX_POWER_DBM = 43.0 # 20 Watts
+FREQUENCY_HZ = 2.1e9 # 2100 MHz (S-Band)
 
 Running TestsThe project includes a comprehensive test suite covering the core physical algorithms.
 Bash
@@ -116,4 +120,7 @@ Libraries: Skyfield (Orbital mechanics), FastAPI (REST API), NumPy, Pandas, Matp
 Author: Damian Stochla
 Version: 1.1.0
 License: Academic use - please cite this project if used in research or thesis work.
+
+```
+
 ```

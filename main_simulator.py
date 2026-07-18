@@ -8,6 +8,8 @@ Coordinates the complete simulation pipeline:
 4. Link budget analysis - service availability determination
 5. Coverage analytics - aggregated statistics and visualization
 """
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
 import os
 import sys

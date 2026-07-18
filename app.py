@@ -27,7 +27,8 @@ def execute_physics_engine(constellation: str):
             ["python", "main_simulator.py", "--constellation", constellation],
             check=True, 
             capture_output=True, 
-            text=True
+            text=True,
+            encoding="utf-8"
         )
         sim_state["status"] = "success"
         sim_state["message"] = f"Simulation Complete for {constellation}!"
@@ -36,7 +37,7 @@ def execute_physics_engine(constellation: str):
         sim_state["status"] = "error"
         sim_state["message"] = "Simulation failed. Check terminal logs."
         logging.error(f"Engine failed: {e.stderr}")
-
+        
 @app.get("/")
 def serve_dashboard():
     return FileResponse("static/index.html")
